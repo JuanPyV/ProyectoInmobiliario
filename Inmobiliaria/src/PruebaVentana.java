@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JRadioButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class PruebaVentana {
 
@@ -60,42 +61,45 @@ public class PruebaVentana {
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(158)
+					.addGap(72)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnNewButton)
-							.addComponent(btnNewButton_1))
+							.addGap(64)
+							.addComponent(rdbtnNewRadioButton_1))
 						.addComponent(btnNewButton_2))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addGap(80)
+					.addComponent(btnNewButton_1)
+					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(86)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(rdbtnNewRadioButton_1)
-								.addComponent(rdbtnNewRadioButton)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(99)
-							.addComponent(rdbtnNewRadioButton_2)))
-					.addContainerGap(227, Short.MAX_VALUE))
+							.addComponent(rdbtnNewRadioButton_2)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addComponent(rdbtnNewRadioButton)
+							.addGap(119))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(115)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton)
-						.addComponent(rdbtnNewRadioButton))
+					.addGap(62)
+					.addComponent(rdbtnNewRadioButton)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(18)
+							.addGap(23)
+							.addComponent(btnNewButton)
+							.addGap(29)
 							.addComponent(btnNewButton_1)
-							.addGap(18)
+							.addGap(13)
 							.addComponent(btnNewButton_2))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(1)
+							.addGap(18)
 							.addComponent(rdbtnNewRadioButton_1)
 							.addGap(18)
 							.addComponent(rdbtnNewRadioButton_2)))
-					.addContainerGap(183, Short.MAX_VALUE))
+					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

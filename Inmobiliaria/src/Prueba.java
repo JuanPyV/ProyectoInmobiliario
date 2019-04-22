@@ -44,13 +44,13 @@ public class Prueba {
 		frame.setBounds(100, 100, 549, 353);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Mayra");
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("JuanPy");
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Que pasa mi gente");
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Busqueda por superficie");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -64,9 +64,9 @@ public class Prueba {
 									.addComponent(btnNewButton_1)
 									.addComponent(btnNewButton))))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(146)
+							.addGap(57)
 							.addComponent(rdbtnNewRadioButton)))
-					.addContainerGap(278, Short.MAX_VALUE))
+					.addContainerGap(335, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -77,9 +77,9 @@ public class Prueba {
 					.addComponent(btnNewButton_1)
 					.addGap(51)
 					.addComponent(chckbxNewCheckBox)
-					.addPreferredGap(ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+					.addGap(39)
 					.addComponent(rdbtnNewRadioButton)
-					.addGap(45))
+					.addContainerGap(56, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
