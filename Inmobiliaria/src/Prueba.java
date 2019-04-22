@@ -46,7 +46,7 @@ public class Prueba {
 		
 		JButton btnNewButton = new JButton("Mayra");
 		
-		JButton btnNewButton_1 = new JButton("JuanPy");
+		JButton btnNewButton_1 = new JButton("Vargas #novioPaty");
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Que pasa mi gente");
 		
