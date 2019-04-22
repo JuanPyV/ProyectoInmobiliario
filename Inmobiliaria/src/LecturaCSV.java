@@ -7,25 +7,20 @@ public class LecturaCSV {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Scanner s;
+		String filename = "docs/Inmuebles.csv";
+		File file = new File (filename);
 		try {
-			s = new Scanner (new File("docs/Inmuebles.csv"));
-			
-			ArrayList<String> listS	 = new ArrayList<String>();
-			
-			while (s.hasNextLine()) {
-				listS.add(s.nextLine());
+			Scanner inputStream = new Scanner(file);
+			while(inputStream.hasNext()) {
+				String data = inputStream.next();
+				String[] values = data.split(",");
+				System.out.println(values[8] + "**");
 			}
-			
-			System.out.println(listS);
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			inputStream.close();
+		}
+		catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		
 
 	}
 
