@@ -1,4 +1,4 @@
-Referencia,Fecha Alta,Tipo,Operación,Provincia,Superficie,Precio Venta,Fecha Venta,Vendedor
+Referencia,Fecha-Alta,Tipo,Operación,Provincia,Superficie,Precio-Venta,Fecha-Venta,Vendedor
 1,01/01/04,Parking,Alquiler,Lleida,291,2133903,19/06/04,Carmen
 2,01/01/04,Local,Venta,Girona,199,1945424,19/04/04,Pedro
 3,01/01/04,Oficina,Alquiler,Girona,82,712416,08/11/04,Joaquin
@@ -2426,6 +2426,7 @@ Referencia,Fecha Alta,Tipo,Operación,Provincia,Superficie,Precio Venta,Fecha Ve
 2425,20/05/06,Suelo,Venta,Barcelona,285,2603190,15/11/06,Joaquin
 2426,20/05/06,Suelo,Venta,Girona,247,2320565,01/05/07,Jesus
 2427,21/05/06,Parking,Venta,Barcelona,213,928041,10/12/06,Luisa
+<<<<<<< HEAD
 2428,21/05/06,Industrial,Alquiler,Lleida,277,2268076,25/01/07,Maria
 2429,21/05/06,Casa,Venta,Girona,273,2682225,,
 2430,21/05/06,Casa,Venta,Girona,245,2037420,04/04/07,Pedro
@@ -3336,3 +3337,6 @@ Referencia,Fecha Alta,Tipo,Operación,Provincia,Superficie,Precio Venta,Fecha Ve
 3335,30/04/07,Suelo,Venta,Tarragona,78,740688,,
 3336,30/04/07,Piso,Alquiler,Barcelona,88,397408,,
 3337,30/04/07,Parking,Venta,Lleida,254,2140712,,
+=======
+2428,21/05/06,Industrial,Alquiler,Lleida,277,2268076,25/01/07,María
+>>>>>>> master
