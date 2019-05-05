@@ -1,13 +1,14 @@
+import java.io.Serializable;
 
-public class datosInmobiliaria {
+public class datosInmobiliaria implements Serializable {
 
-	private String ref, fechaA, tipo, operacion, provincia, superficie, precio, fechaV, vendedor;
+	private static final long serialVersionUID = -155210258862180868L;
+	private String ref, tipo, operacion, provincia, superficie, precio, fechaV, vendedor;
 
-	public datosInmobiliaria(String ref, String fechaA, String tipo, String operacion, String provincia,
+	public datosInmobiliaria(String ref, String tipo, String operacion, String provincia,
 			String superficie, String precio, String fechaV, String vendedor) {
 		super();
 		this.ref = ref;
-		this.fechaA = fechaA;
 		this.tipo = tipo;
 		this.operacion = operacion;
 		this.provincia = provincia;
@@ -19,10 +20,6 @@ public class datosInmobiliaria {
 
 	public String getRef() {
 		return ref;
-	}
-
-	public String getFechaA() {
-		return fechaA;
 	}
 
 	public String getTipo() {

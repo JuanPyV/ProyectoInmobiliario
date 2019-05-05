@@ -27,6 +27,7 @@ public class MiListaEnlazada<E> {
 			this.fin = nvo;// este es nuestro ultimo elemento de nuestra lista
 			this.size++;
 		}
+		this.fin = null;
 	}
 
 	public NodoLE<E> getInicio() {

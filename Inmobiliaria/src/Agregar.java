@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 
-public class agregar {
+public class Agregar {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -28,7 +28,7 @@ public class agregar {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					agregar window = new agregar();
+					Agregar window = new Agregar();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class agregar {
 	/**
 	 * Create the application.
 	 */
-	public agregar() {
+	public Agregar() {
 		initialize();
 	}
 
