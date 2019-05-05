@@ -55,14 +55,19 @@ public class ventana {
 		
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
-				Buscar bVentana = new Buscar();
+			public void actionPerformed(ActionEvent arg0) {				
+				Buscar.main(null);
 				
 			}
 		});
 		
 		JButton btnNewButton_1 = new JButton("Agregar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Agregar.main(null);
+				
+			}
+		});
 		
 		JButton btnNewButton_2 = new JButton("Ver Datos");
 		
