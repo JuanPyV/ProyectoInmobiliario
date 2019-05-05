@@ -3,7 +3,7 @@ Referencia,Tipo,Operacion,Provincia,Superficie,Precio-Venta,Fecha-Venta,Vendedor
 2,Local,Venta,Girona,199,1945424,19/04/2004,Pedro
 3,Oficina,Alquiler,Girona,82,712416,08/11/2004,Joaquin
 4,Parking,Alquiler,Girona,285,1815450,27/04/2004,Jesus
-5,Suelo,Ventax,Tarragona,152,1138024,10/07/2004,Maria
+5,Suelo,Venta,Tarragona,152,1138024,10/07/2004,Maria
 6,Industrial,Alquiler,Girona,131,953156,05/09/2004,Pedro
 7,Parking,Alquiler,Tarragona,69,406686,07/06/2004,Pedro
 8,Oficina,Venta,Girona,235,2158475,31/10/2004,Jesus

@@ -5,11 +5,11 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
 
-public class buscar {
+public class agregar {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -28,7 +28,7 @@ public class buscar {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					buscar window = new buscar();
+					agregar window = new agregar();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class buscar {
 	/**
 	 * Create the application.
 	 */
-	public buscar() {
+	public agregar() {
 		initialize();
 	}
 
@@ -49,13 +49,11 @@ public class buscar {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 630, 490);
+		frame.setBounds(100, 100, 640, 490);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblBuscar = new JLabel("Busqueda");
-		lblBuscar.setFont(new Font("Dialog", Font.BOLD, 24));
-		
-		JButton btnBuscar = new JButton("Buscar");
+		JLabel lblAgregar = new JLabel("Agregar Venta");
+		lblAgregar.setFont(new Font("Dialog", Font.BOLD, 24));
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -81,66 +79,69 @@ public class buscar {
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Referencia");
+		JLabel lblReferencia = new JLabel("Referencia");
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		
-		JLabel lblNewLabel_1 = new JLabel("Operacion");
+		JLabel lblOperacion = new JLabel("Operacion");
 		
 		JLabel lblProvincia = new JLabel("Provincia");
 		
 		JLabel lblSuperficie = new JLabel("Superficie");
 		
-		JLabel lblPrecioVenta = new JLabel("Precio Venta");
+		JLabel lblNewLabel = new JLabel("Precio Venta");
 		
 		JLabel lblFechaVenta = new JLabel("Fecha Venta");
 		
 		JLabel lblVendedor = new JLabel("Vendedor");
+		
+		JButton btnAgregar = new JButton("Agregar");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(20)
-					.addComponent(lblBuscar)
-					.addContainerGap(478, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(150)
+					.addGap(162)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel)
+						.addComponent(lblReferencia)
 						.addComponent(lblTipo)
-						.addComponent(lblNewLabel_1)
+						.addComponent(lblOperacion)
 						.addComponent(lblProvincia)
 						.addComponent(lblSuperficie)
-						.addComponent(lblPrecioVenta)
+						.addComponent(lblNewLabel)
 						.addComponent(lblFechaVenta)
 						.addComponent(lblVendedor))
 					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
-							.addComponent(btnBuscar)
-							.addGap(62))
+							.addPreferredGap(ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+							.addComponent(btnAgregar)
+							.addGap(77))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(308, Short.MAX_VALUE))))
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addContainerGap(253, Short.MAX_VALUE))))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(21)
+					.addComponent(lblAgregar)
+					.addContainerGap(512, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblBuscar)
-					.addGap(41)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel))
+					.addGap(23)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblReferencia)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblAgregar)
+							.addGap(18)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -148,34 +149,29 @@ public class buscar {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_1))
+						.addComponent(lblOperacion))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblProvincia))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblSuperficie))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPrecioVenta))
+						.addComponent(lblNewLabel))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblFechaVenta))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-							.addComponent(btnBuscar)
-							.addGap(66))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblVendedor))
-							.addContainerGap())))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblVendedor)
+						.addComponent(btnAgregar))
+					.addContainerGap(70, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
