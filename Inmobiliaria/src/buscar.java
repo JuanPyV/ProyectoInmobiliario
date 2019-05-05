@@ -99,9 +99,11 @@ public class Buscar {
 		JLabel lblFechaVenta = new JLabel("Fecha Venta");
 
 		JLabel lblVendedor = new JLabel("Vendedor");
-
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
 		JTextPane textPane = new JTextPane();
-		JScrollPane textPaneScroll = new JScrollPane(textPane);
+		scrollPane.setViewportView(textPane);
 		textPane.setEditable(false);
 
 		JButton btnBuscar = new JButton("Buscar Referencia");
@@ -116,6 +118,7 @@ public class Buscar {
 								+ objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
 								+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio()
 								+ ", " + objeto.getFechaV() + ", " + objeto.getVendedor());
+				
 
 			}
 		});
@@ -162,7 +165,7 @@ public class Buscar {
 				LecturaCSV datos = new LecturaCSV();
 				datos.insertarDatos(new File("src/Inmuebles.csv"));
 				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorTipoProv(textField_1.getText(),
-						textField_1.getText());
+						textField_3.getText());
 				String datosCompletos = "Referencia, Tipo, Operacion, Provincia, Superficie, Precio Venta, Fecha Venta, Vendedor \n";
 				for (int i = 0; i < lista.size(); i++) {
 					datosInmobiliaria objeto = lista.getEn(i);
@@ -174,93 +177,168 @@ public class Buscar {
 				textPane.setText(datosCompletos);
 			}
 		});
+		
+		JButton btnBuscarTipooperacion = new JButton("Buscar Tipo-Operacion");
+		btnBuscarTipooperacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LecturaCSV datos = new LecturaCSV();
+				datos.insertarDatos(new File("src/Inmuebles.csv"));
+				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorTipoOpe(textField_1.getText(),
+						textField_2.getText());
+				String datosCompletos = "Referencia, Tipo, Operacion, Provincia, Superficie, Precio Venta, Fecha Venta, Vendedor \n";
+				for (int i = 0; i < lista.size(); i++) {
+					datosInmobiliaria objeto = lista.getEn(i);
+					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+					datosCompletos = datosCompletos + datosList;
+				}
+				textPane.setText(datosCompletos);
+			}
+		});
+		
+		JButton btnBuscarPrecioMayor = new JButton("Buscar precio mayor a");
+		btnBuscarPrecioMayor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LecturaCSV datos = new LecturaCSV();
+				datos.insertarDatos(new File("src/Inmuebles.csv"));
+				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorPrecio(Integer.parseInt(textField_5.getText()));
+				String datosCompletos = "Referencia, Tipo, Operacion, Provincia, Superficie, Precio Venta, Fecha Venta, Vendedor \n";
+				for (int i = 0; i < lista.size(); i++) {
+					datosInmobiliaria objeto = lista.getEn(i);
+					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+					datosCompletos = datosCompletos + datosList;
+				}
+				textPane.setText(datosCompletos);
+			}
+		});
+		
+		JButton btnBuscarSuperficieMayor = new JButton("Buscar superficie mayor a");
+		btnBuscarSuperficieMayor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LecturaCSV datos = new LecturaCSV();
+				datos.insertarDatos(new File("src/Inmuebles.csv"));
+				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorSuperficie(Integer.parseInt(textField_4.getText()));
+				String datosCompletos = "Referencia, Tipo, Operacion, Provincia, Superficie, Precio Venta, Fecha Venta, Vendedor \n";
+				for (int i = 0; i < lista.size(); i++) {
+					datosInmobiliaria objeto = lista.getEn(i);
+					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+					datosCompletos = datosCompletos + datosList;
+				}
+				textPane.setText(datosCompletos);
+				
+			}
+		});
+		
+		
 
 		GroupLayout groupLayout = new GroupLayout(frameB.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
-				.createSequentialGroup()
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup().addGap(24).addComponent(textPaneScroll,
-								GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup().addGap(34).addComponent(lblBuscar)
-								.addPreferredGap(ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(lblNewLabel)
-										.addComponent(lblTipo).addComponent(lblNewLabel_1).addComponent(lblProvincia)
-										.addComponent(lblSuperficie).addComponent(lblPrecioVenta)
-										.addComponent(lblFechaVenta).addComponent(lblVendedor))
-								.addGap(18)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(groupLayout.createSequentialGroup()
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-														.addComponent(textField, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(textField_2, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(textField_4, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(textField_6, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-												.addGap(53)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-														.addComponent(btnBuscarTipoprovincia)
-														.addComponent(btnBuscarVendedor).addComponent(btnBuscarTipo)
-														.addComponent(btnBuscar))))
-								.addGap(19)))
-				.addGap(33)));
-		groupLayout
-				.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup().addGap(18)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblNewLabel).addComponent(lblBuscar).addComponent(btnBuscar))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblTipo))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblNewLabel_1).addComponent(btnBuscarTipo))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblProvincia))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-												.addComponent(textField_4, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addComponent(btnBuscarVendedor))
-										.addComponent(lblSuperficie))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblPrecioVenta))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblFechaVenta).addComponent(btnBuscarTipoprovincia))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblVendedor))
-								.addGap(56)
-								.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(44, Short.MAX_VALUE)));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(26)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 544, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(8)
+							.addComponent(lblBuscar)
+							.addPreferredGap(ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNewLabel)
+								.addComponent(lblTipo)
+								.addComponent(lblNewLabel_1)
+								.addComponent(lblProvincia)
+								.addComponent(lblSuperficie)
+								.addComponent(lblPrecioVenta)
+								.addComponent(lblFechaVenta)
+								.addComponent(lblVendedor))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(53)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnBuscarPrecioMayor)
+								.addComponent(btnBuscarTipooperacion)
+								.addComponent(btnBuscarTipoprovincia)
+								.addComponent(btnBuscarVendedor)
+								.addComponent(btnBuscarTipo)
+								.addComponent(btnBuscar)
+								.addComponent(btnBuscarSuperficieMayor))
+							.addGap(68))))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(18)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel)
+						.addComponent(lblBuscar)
+						.addComponent(btnBuscar))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblTipo))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNewLabel_1))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblProvincia)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(20)
+							.addComponent(btnBuscarTipo)
+							.addGap(18)
+							.addComponent(btnBuscarVendedor)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblSuperficie))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblPrecioVenta))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblFechaVenta))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblVendedor)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnBuscarTipoprovincia)
+							.addGap(18)
+							.addComponent(btnBuscarTipooperacion)
+							.addGap(18)
+							.addComponent(btnBuscarPrecioMayor)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnBuscarSuperficieMayor)
+					.addGap(46)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(45, Short.MAX_VALUE))
+		);
+		
+				
 		frameB.getContentPane().setLayout(groupLayout);
 	}
 }
