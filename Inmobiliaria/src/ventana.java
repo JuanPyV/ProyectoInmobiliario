@@ -9,6 +9,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ventana {
 
@@ -52,32 +54,41 @@ public class ventana {
 		panel.setBackground(Color.RED);
 		
 		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				Buscar bVentana = new Buscar();
+				
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("Agregar");
 		
-		JButton btnNewButton_2 = new JButton("Ver Datos\n");
+		JButton btnNewButton_2 = new JButton("Ver Datos");
 		
-		JButton btnNewButton_3 = new JButton("No me acuerdo");
+		JButton btnNewButton_3 = new JButton("Borrar");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(54)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnNewButton)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnNewButton_1)
-							.addGap(64)
-							.addComponent(btnNewButton_2)
-							.addGap(49)
-							.addComponent(btnNewButton_3))
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 523, GroupLayout.PREFERRED_SIZE))
+							.addGap(54)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(btnNewButton)
+									.addGap(77)
+									.addComponent(btnNewButton_1)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(btnNewButton_2)
+									.addGap(60)
+									.addComponent(btnNewButton_3)
+									.addGap(8))
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 523, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(227)
+							.addComponent(lblNewLabel)))
 					.addContainerGap(47, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(227)
-					.addComponent(lblNewLabel)
-					.addContainerGap(261, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -89,9 +100,9 @@ public class ventana {
 					.addGap(29)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton)
-						.addComponent(btnNewButton_3)
+						.addComponent(btnNewButton_1)
 						.addComponent(btnNewButton_2)
-						.addComponent(btnNewButton_1))
+						.addComponent(btnNewButton_3))
 					.addContainerGap(129, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);

@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -13,7 +15,7 @@ import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 
-public class buscar {
+public class Buscar {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -32,7 +34,7 @@ public class buscar {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					buscar window = new buscar();
+					Buscar window = new Buscar();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +46,7 @@ public class buscar {
 	/**
 	 * Create the application.
 	 */
-	public buscar() {
+	public Buscar() {
 		initialize();
 	}
 
@@ -111,16 +113,19 @@ public class buscar {
 		JLabel lblVendedor = new JLabel("Vendedor");
 		
 		JTextPane textPane = new JTextPane();
+				
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addGap(34)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(textPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGap(24)
+							.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(34)
 							.addComponent(lblBuscar)
-							.addPreferredGap(ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNewLabel)
 								.addComponent(lblTipo)
@@ -131,19 +136,18 @@ public class buscar {
 								.addComponent(lblFechaVenta)
 								.addComponent(lblVendedor))
 							.addGap(18)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(textField_7, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addGroup(Alignment.LEADING, groupLayout.createParallelGroup(Alignment.LEADING)
-									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addGap(72)
-										.addComponent(btnBuscar))
-									.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGap(72)
+									.addComponent(btnBuscar))
+								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 					.addGap(33))
 		);
 		groupLayout.setVerticalGroup(
@@ -184,10 +188,10 @@ public class buscar {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblVendedor))
-					.addGap(36)
-					.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(19, Short.MAX_VALUE))
-		);
+					.addGap(56)
+					.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(48, Short.MAX_VALUE)
+		));
 		frame.getContentPane().setLayout(groupLayout);
 	}
 }
