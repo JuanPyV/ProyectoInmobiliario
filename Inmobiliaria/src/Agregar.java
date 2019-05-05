@@ -8,10 +8,12 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Agregar {
 
-	private JFrame frame;
+	private JFrame frameA;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -29,7 +31,7 @@ public class Agregar {
 			public void run() {
 				try {
 					Agregar window = new Agregar();
-					window.frame.setVisible(true);
+					window.frameA.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,9 +50,8 @@ public class Agregar {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 640, 490);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameA = new JFrame();
+		frameA.setBounds(100, 100, 640, 490);
 		
 		JLabel lblAgregar = new JLabel("Agregar Venta");
 		lblAgregar.setFont(new Font("Dialog", Font.BOLD, 24));
@@ -96,7 +97,14 @@ public class Agregar {
 		JLabel lblVendedor = new JLabel("Vendedor");
 		
 		JButton btnAgregar = new JButton("Agregar");
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		
+		JButton btnNewButton = new JButton("Regresar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventana.main(null);
+			}
+		});
+		GroupLayout groupLayout = new GroupLayout(frameA.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -113,24 +121,29 @@ public class Agregar {
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-							.addComponent(btnAgregar)
-							.addGap(77))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(253, Short.MAX_VALUE))))
+							.addContainerGap(253, Short.MAX_VALUE))
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+									.addComponent(btnNewButton))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+									.addComponent(btnAgregar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
+							.addGap(74))))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(21)
 					.addComponent(lblAgregar)
-					.addContainerGap(512, Short.MAX_VALUE))
+					.addContainerGap(440, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -161,7 +174,8 @@ public class Agregar {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel))
+						.addComponent(lblNewLabel)
+						.addComponent(btnAgregar, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -170,9 +184,9 @@ public class Agregar {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblVendedor)
-						.addComponent(btnAgregar))
+						.addComponent(btnNewButton))
 					.addContainerGap(70, Short.MAX_VALUE))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		frameA.getContentPane().setLayout(groupLayout);
 	}
 }

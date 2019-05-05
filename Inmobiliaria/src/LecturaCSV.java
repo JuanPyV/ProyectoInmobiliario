@@ -73,6 +73,8 @@ public class LecturaCSV {
 		return this.lista.get(ref);
 	}
 	
+	
+	
 /* busca por tipo */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorTipo(String tipo) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();

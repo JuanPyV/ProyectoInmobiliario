@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 
 public class ventana {
 
-	private JFrame frame;
+	private JFrame frameV;
 
 	/**
 	 * Launch the application.
@@ -24,7 +24,7 @@ public class ventana {
 			public void run() {
 				try {
 					ventana window = new ventana();
-					window.frame.setVisible(true);
+					window.frameV.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,9 +43,9 @@ public class ventana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 640, 490);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameV = new JFrame();
+		frameV.setBounds(100, 100, 640, 490);
+		frameV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblNewLabel = new JLabel("Inmobiliaria");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 24));
@@ -72,7 +72,7 @@ public class ventana {
 		JButton btnNewButton_2 = new JButton("Ver Datos");
 		
 		JButton btnNewButton_3 = new JButton("Borrar");
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(frameV.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -110,6 +110,6 @@ public class ventana {
 						.addComponent(btnNewButton_3))
 					.addContainerGap(129, Short.MAX_VALUE))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		frameV.getContentPane().setLayout(groupLayout);
 	}
 }
