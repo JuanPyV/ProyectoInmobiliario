@@ -107,11 +107,11 @@ public class Buscar {
 		textPane.setEditable(false);
 
 		JButton btnBuscar = new JButton("Buscar Referencia");
+		
 		btnBuscar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				LecturaCSV datos = new LecturaCSV();
-				datos.insertarDatos(new File("src/Inmuebles.csv"));
+				LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
 				datosInmobiliaria objeto = datos.encontrar(textField.getText());
 				textPane.setText(
 						"Referencia, Tipo, Operacion, Provincia, Superficie, Precio Venta, Fecha Venta, Vendedor  \n"

@@ -3,18 +3,25 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.WindowConstants;
+
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ventana {
+public class ventana extends JPanel {
 
 	private JFrame frameV;
+	private Image imagen;
+	
 
 	/**
 	 * Launch the application.
@@ -37,6 +44,8 @@ public class ventana {
 	 */
 	public ventana() {
 		initialize();
+		
+	
 	}
 
 	/**
@@ -47,11 +56,14 @@ public class ventana {
 		frameV.setBounds(100, 100, 640, 490);
 		frameV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		
 		JLabel lblNewLabel = new JLabel("Inmobiliaria");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 24));
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.RED);
+		this.imagen = new ImageIcon("inmobiliaria.png").getImage();
+		
 		
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -112,4 +124,10 @@ public class ventana {
 		);
 		frameV.getContentPane().setLayout(groupLayout);
 	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(this.imagen, 100, 100, this);
+		
+	} 
 }
