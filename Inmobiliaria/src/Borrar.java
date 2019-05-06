@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -11,6 +12,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.NoSuchElementException;
 
 public class Borrar {
 
@@ -56,11 +58,11 @@ public class Borrar {
 		frame.getContentPane().add(lblBorrar);
 
 		JLabel lblReferencia = new JLabel("Referencia:");
-		lblReferencia.setBounds(69, 122, 66, 14);
+		lblReferencia.setBounds(68, 128, 66, 14);
 		frame.getContentPane().add(lblReferencia);
 
 		borrarRef = new JTextField();
-		borrarRef.setBounds(165, 119, 86, 20);
+		borrarRef.setBounds(165, 119, 86, 32);
 		frame.getContentPane().add(borrarRef);
 		borrarRef.setColumns(10);
 
@@ -88,9 +90,8 @@ public class Borrar {
 					valorBorrado.setText(objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
 							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
 							+ objeto.getFechaV() + ", " + objeto.getVendedor());
-				} catch (NullPointerException exp) {
-					valorBorrado.setText("Borrado");
-					throw new NullPointerException("No se encontró esta referencia");
+				} catch (NoSuchElementException exp) {
+					JOptionPane.showMessageDialog(frame, "No se encontro esta referencia");
 				}
 
 			}
