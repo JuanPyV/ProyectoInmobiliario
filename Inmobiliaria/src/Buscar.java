@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
@@ -26,7 +27,6 @@ public class Buscar {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTable table;
 
@@ -81,9 +81,6 @@ public class Buscar {
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 
@@ -98,8 +95,6 @@ public class Buscar {
 		JLabel lblSuperficie = new JLabel("Superficie");
 
 		JLabel lblPrecioVenta = new JLabel("Precio Venta");
-
-		JLabel lblFechaVenta = new JLabel("Fecha Venta");
 
 		JLabel lblVendedor = new JLabel("Vendedor");
 		
@@ -234,15 +229,21 @@ public class Buscar {
 			public void actionPerformed(ActionEvent arg0) {
 				((DefaultTableModel)table.getModel()).setRowCount(0);
 				LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
-				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorPrecio(Integer.parseInt(textField_5.getText()));
-				for (int i = 0; i < lista.size(); i++) {
-					datosInmobiliaria objeto = lista.getEn(i);
-					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
-							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
-							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
-					String[] dataRow = datosList.split(",");
-					model.addRow(dataRow);
+				try {
+					MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorPrecio(Integer.parseInt(textField_5.getText()));
+					for (int i = 0; i < lista.size(); i++) {
+						datosInmobiliaria objeto = lista.getEn(i);
+						String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+								+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+								+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+						String[] dataRow = datosList.split(",");
+						model.addRow(dataRow);
+					}
+					
+				} catch (NumberFormatException a) {
+					JOptionPane.showMessageDialog(frameB, "Ingresa un dato numerico valido");
 				}
+				
 			}
 		});
 		
@@ -251,15 +252,21 @@ public class Buscar {
 			public void actionPerformed(ActionEvent arg0) {
 				((DefaultTableModel)table.getModel()).setRowCount(0);
 				LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
-				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorSuperficie(Integer.parseInt(textField_4.getText()));
-				for (int i = 0; i < lista.size(); i++) {
-					datosInmobiliaria objeto = lista.getEn(i);
-					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
-							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
-							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
-					String[] dataRow = datosList.split(",");
-					model.addRow(dataRow);
+				try {
+					MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorSuperficie(Integer.parseInt(textField_4.getText()));
+					for (int i = 0; i < lista.size(); i++) {
+						datosInmobiliaria objeto = lista.getEn(i);
+						String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+								+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+								+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+						String[] dataRow = datosList.split(",");
+						model.addRow(dataRow);
+					}
+					
+				} catch (NumberFormatException b) {
+					JOptionPane.showMessageDialog(frameB, "Ingresa un dato numerico valido");
 				}
+				
 				
 			}
 		});
@@ -269,15 +276,20 @@ public class Buscar {
 			public void actionPerformed(ActionEvent e) {
 				((DefaultTableModel)table.getModel()).setRowCount(0);
 				LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
-				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorPrecioM(Integer.parseInt(textField_5.getText()));
-				for (int i = 0; i < lista.size(); i++) {
-					datosInmobiliaria objeto = lista.getEn(i);
-					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
-							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
-							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
-					String[] dataRow = datosList.split(",");
-					model.addRow(dataRow);
+				try {
+					MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorPrecioM(Integer.parseInt(textField_5.getText()));
+					for (int i = 0; i < lista.size(); i++) {
+						datosInmobiliaria objeto = lista.getEn(i);
+						String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+								+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+								+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+						String[] dataRow = datosList.split(",");
+						model.addRow(dataRow);
+					}
+				} catch (NumberFormatException c) {
+					JOptionPane.showMessageDialog(frameB, "Ingresa un dato numerico valido");
 				}
+				
 			}
 		});
 		
@@ -286,15 +298,21 @@ public class Buscar {
 			public void actionPerformed(ActionEvent e) {
 				((DefaultTableModel)table.getModel()).setRowCount(0);
 				LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
-				MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorSuperficieM(Integer.parseInt(textField_4.getText()));
-				for (int i = 0; i < lista.size(); i++) {
-					datosInmobiliaria objeto = lista.getEn(i);
-					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
-							+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
-							+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
-					String[] dataRow = datosList.split(",");
-					model.addRow(dataRow);
+				try {
+					MiListaEnlazada<datosInmobiliaria> lista = datos.encontrarPorSuperficieM(Integer.parseInt(textField_4.getText()));
+					for (int i = 0; i < lista.size(); i++) {
+						datosInmobiliaria objeto = lista.getEn(i);
+						String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+								+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio() + ", "
+								+ objeto.getFechaV() + ", " + objeto.getVendedor() + "\n";
+						String[] dataRow = datosList.split(",");
+						model.addRow(dataRow);
+					}
+					
+				} catch (NumberFormatException d) {
+					JOptionPane.showMessageDialog(frameB, "Ingresa un dato numerico valido");
 				}
+				
 			}
 		});
 		
@@ -322,13 +340,13 @@ public class Buscar {
 
 		GroupLayout groupLayout = new GroupLayout(frameB.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(88)
 					.addComponent(lblBuscar)
-					.addContainerGap(682, Short.MAX_VALUE))
+					.addContainerGap(659, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(138, Short.MAX_VALUE)
+					.addContainerGap(115, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -337,13 +355,11 @@ public class Buscar {
 								.addComponent(lblProvincia)
 								.addComponent(lblSuperficie)
 								.addComponent(lblPrecioVenta)
-								.addComponent(lblFechaVenta)
 								.addComponent(lblVendedor))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -371,10 +387,10 @@ public class Buscar {
 							.addGap(30)
 							.addComponent(btnBuscarTipooperacionprovincia)))
 					.addGap(107))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(35)
 					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 787, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(64, Short.MAX_VALUE))
+					.addContainerGap(41, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -427,11 +443,7 @@ public class Buscar {
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblPrecioVenta))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblFechaVenta))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblVendedor))))
