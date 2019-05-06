@@ -90,6 +90,11 @@ public class ventana extends JPanel {
 		});
 
 		JButton btnNewButton_3 = new JButton("Borrar");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Borrar.main(null);
+			}
+		});
 
 
 		ImageIcon imagen = new ImageIcon("src/inmobiliaria.png");

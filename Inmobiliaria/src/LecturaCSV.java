@@ -88,36 +88,6 @@ public class LecturaCSV {
 		return arreglo;
 	}
 
-	/* busca por operacion */
-	public MiListaEnlazada<datosInmobiliaria> encontrarPorOperacion(String operacion) {
-		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
-		for (int i = 0; i < this.lista.getTabla().length; i++) {
-			if (this.lista.getTabla()[i].size() > 0) {
-				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
-					if (this.lista.getTabla()[i].getEn(j).valor.getTipo().equals(operacion)) {
-						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
-					}
-				}
-			}
-		}
-		return arreglo;
-	}
-
-	/* busca por provincia */
-	public MiListaEnlazada<datosInmobiliaria> encontrarPorProvincia(String provincia) {
-		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
-		for (int i = 0; i < this.lista.getTabla().length; i++) {
-			if (this.lista.getTabla()[i].size() > 0) {
-				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
-					if (this.lista.getTabla()[i].getEn(j).valor.getTipo().equals(provincia)) {
-						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
-					}
-				}
-			}
-		}
-		return arreglo;
-	}
-
 	/* busca por vendedor */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorVendedor(String vendedor) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
@@ -165,6 +135,23 @@ public class LecturaCSV {
 		return arreglo;
 	}
 
+	/* busca por tipo - operacion - provincia */
+	public MiListaEnlazada<datosInmobiliaria> encontrarPorTipoOpeProv(String tipo, String operacion, String provincia) {
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					if (this.lista.getTabla()[i].getEn(j).valor.getTipo().equals(tipo)
+							&& this.lista.getTabla()[i].getEn(j).valor.getOperacion().equals(operacion)
+							&& this.lista.getTabla()[i].getEn(j).valor.getProvincia().equals(provincia)) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
+
 	/* bucar precio mayor */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorPrecio(int precio) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
@@ -181,6 +168,22 @@ public class LecturaCSV {
 		return arreglo;
 	}
 
+	/* bucar precio menor */
+	public MiListaEnlazada<datosInmobiliaria> encontrarPorPrecioM(int precio) {
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					int precioString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getPrecio());
+					if (precio > precioString) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
+
 	/* bucar superficie mayor */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorSuperficie(int superficie) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
@@ -189,6 +192,22 @@ public class LecturaCSV {
 				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
 					int supString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getSuperficie());
 					if (superficie <= supString) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
+
+	/* bucar superficie menor */
+	public MiListaEnlazada<datosInmobiliaria> encontrarPorSuperficieM(int superficie) {
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					int supString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getSuperficie());
+					if (superficie > supString) {
 						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
 					}
 				}
