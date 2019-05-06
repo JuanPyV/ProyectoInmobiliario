@@ -9,14 +9,19 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.WindowConstants;
+
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ventana {
+public class ventana extends JPanel {
 
 	private JFrame frameV;
+	private Image imagen;
+
 
 	/**
 	 * Launch the application.
@@ -39,48 +44,56 @@ public class ventana {
 	 */
 	public ventana() {
 		initialize();
+
+
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
+
 		frameV = new JFrame();
 		frameV.setBounds(100, 100, 650, 490);
 		frameV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
+
+
 		JLabel lblNewLabel = new JLabel("Inmobiliaria");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 24));
-		
+
+		JPanel panel = new JPanel();
+		this.imagen = new ImageIcon("inmobiliaria.png").getImage();
+
+
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {				
+			public void actionPerformed(ActionEvent arg0) {
 				Buscar.main(null);
-				
+
 			}
 		});
-		
+
 		JButton btnNewButton_1 = new JButton("Agregar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Agregar.main(null);
-				
+
 			}
 		});
-		
+
 		JButton btnNewButton_2 = new JButton("Ver Datos");
-		
+
 		JButton btnNewButton_3 = new JButton("Borrar");
-		
-		
-		ImageIcon imagen = new ImageIcon("src/inmobiliaria.png");	
+
+
+		ImageIcon imagen = new ImageIcon("src/inmobiliaria.png");
 		Image image = imagen.getImage();
-		Image newimg = image.getScaledInstance(620, 250,  java.awt.Image.SCALE_SMOOTH);		
+		Image newimg = image.getScaledInstance(620, 250,  java.awt.Image.SCALE_SMOOTH);
 		ImageIcon imagencita = new ImageIcon(newimg);
 		JLabel lblNewLabel_1 = new JLabel();
 		lblNewLabel_1.setIcon(imagencita);
-		
+
 		GroupLayout groupLayout = new GroupLayout(frameV.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -121,5 +134,11 @@ public class ventana {
 					.addContainerGap(129, Short.MAX_VALUE))
 		);
 		frameV.getContentPane().setLayout(groupLayout);
+	}
+
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(this.imagen, 100, 100, this);
+
 	}
 }
