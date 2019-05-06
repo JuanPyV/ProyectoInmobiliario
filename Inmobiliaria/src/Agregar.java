@@ -96,6 +96,10 @@ public class Agregar {
 		JLabel lblVendedor = new JLabel("Vendedor");
 
 		JButton btnAgregar = new JButton("Agregar");
+		
+		JLabel lblReferencia = new JLabel("Referencia");
+		
+		JLabel lblNewLabel_1 = new JLabel("");
 
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,6 +115,7 @@ public class Agregar {
 				// crear objeto para insertar
 				
 				System.out.println(escribir.refMasAlta());
+				lblNewLabel_1.setText(escribir.refMasAlta());
 				datosInmobiliaria objeto = new datosInmobiliaria(escribir.refMasAlta(), tip, op, prov, sup, precio, fecha, vend);
 				System.out.println(escribir.getSize());
 				escribir.meterATabla(objeto);
@@ -120,9 +125,15 @@ public class Agregar {
 		});
 		
 		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(frameA.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(21)
+					.addComponent(lblAgregar)
+					.addContainerGap(440, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(162)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -132,37 +143,38 @@ public class Agregar {
 						.addComponent(lblSuperficie)
 						.addComponent(lblNewLabel)
 						.addComponent(lblFechaVenta)
-						.addComponent(lblVendedor))
+						.addComponent(lblVendedor)
+						.addComponent(lblReferencia))
 					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, groupLayout.createParallelGroup(Alignment.TRAILING)
-							.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-								.addComponent(precioVenta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-								.addComponent(btnAgregar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-								.addGap(101))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(vendedor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(298, Short.MAX_VALUE)))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblNewLabel_1)
+							.addGap(320))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(tipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(operacion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(provincia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(superficie, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(fechaVenta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(298, Short.MAX_VALUE))))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(21)
-					.addComponent(lblAgregar)
-					.addContainerGap(440, Short.MAX_VALUE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(precioVenta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+									.addComponent(btnAgregar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+									.addComponent(vendedor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(tipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(operacion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(provincia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(superficie, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(fechaVenta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addGap(101))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(23)
 					.addComponent(lblAgregar)
-					.addGap(49)
+					.addGap(27)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblReferencia)
+						.addComponent(lblNewLabel_1))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(tipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblTipo))
@@ -191,7 +203,7 @@ public class Agregar {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(vendedor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblVendedor))
-					.addContainerGap(130, Short.MAX_VALUE))
+					.addContainerGap(79, Short.MAX_VALUE))
 		);
 		frameA.getContentPane().setLayout(groupLayout);
 	}

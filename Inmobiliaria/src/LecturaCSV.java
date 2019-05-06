@@ -61,7 +61,7 @@ public class LecturaCSV {
 						values[5], values[6], values[7]);
 				this.lista.put(objto.getRef(), objto);
 			}
-			
+
 			this.size = this.lista.getSize();
 			inputStream.close();
 		} catch (FileNotFoundException e) {
@@ -73,8 +73,7 @@ public class LecturaCSV {
 		return this.lista.get(ref);
 	}
 
-	
-/* busca por tipo */
+	/* busca por tipo */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorTipo(String tipo) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
 		for (int i = 0; i < this.lista.getTabla().length; i++) {
@@ -88,8 +87,38 @@ public class LecturaCSV {
 		}
 		return arreglo;
 	}
-	
-/* busca por vendedor */
+
+	/* busca por operacion */
+	public MiListaEnlazada<datosInmobiliaria> encontrarPorOperacion(String operacion) {
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					if (this.lista.getTabla()[i].getEn(j).valor.getTipo().equals(operacion)) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
+
+	/* busca por provincia */
+	public MiListaEnlazada<datosInmobiliaria> encontrarPorProvincia(String provincia) {
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					if (this.lista.getTabla()[i].getEn(j).valor.getTipo().equals(provincia)) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
+
+	/* busca por vendedor */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorVendedor(String vendedor) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
 		for (int i = 0; i < this.lista.getTabla().length; i++) {
@@ -104,7 +133,7 @@ public class LecturaCSV {
 		return arreglo;
 	}
 
-/* busca por tipo y provincia */
+	/* busca por tipo y provincia */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorTipoProv(String tipo, String provincia) {
 		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
 		for (int i = 0; i < this.lista.getTabla().length; i++) {
@@ -135,50 +164,50 @@ public class LecturaCSV {
 		}
 		return arreglo;
 	}
-	
+
 	/* bucar precio mayor */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorPrecio(int precio) {
-        MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
-        for (int i = 0; i < this.lista.getTabla().length; i++) {
-            if (this.lista.getTabla()[i].size() > 0) {
-                for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
-                    int precioString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getPrecio());
-                    if (precio <= precioString) {
-                        arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
-                    }
-                }
-            }
-        }
-        return arreglo;
-    }
-	
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					int precioString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getPrecio());
+					if (precio <= precioString) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
+
 	/* bucar superficie mayor */
 	public MiListaEnlazada<datosInmobiliaria> encontrarPorSuperficie(int superficie) {
-        MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
-        for (int i = 0; i < this.lista.getTabla().length; i++) {
-            if (this.lista.getTabla()[i].size() > 0) {
-                for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
-                    int supString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getSuperficie());
-                    if (superficie <= supString) {
-                        arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
-                    }
-                }
-            }
-        }
-        return arreglo;
-    }
+		MiListaEnlazada<datosInmobiliaria> arreglo = new MiListaEnlazada<datosInmobiliaria>();
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					int supString = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getSuperficie());
+					if (superficie <= supString) {
+						arreglo.insertarFin(this.lista.getTabla()[i].getEn(j).valor);
+					}
+				}
+			}
+		}
+		return arreglo;
+	}
 
 	public void meterATabla(datosInmobiliaria dato) {
 		this.size++;
 		this.lista.put(dato.getRef(), dato);
 	}
-	
-	//encontrar referencia mas alta +1
+
+	// encontrar referencia mas alta +1
 	public String refMasAlta() {
 		int numerin = 0;
 		for (int i = 0; i < this.lista.getTabla().length; i++) {
 			if (this.lista.getTabla()[i].size() > 0) {
-				for (int j = 0; j < this.lista.getTabla()[i].size(); j++){
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
 					int ref = Integer.parseInt(this.lista.getTabla()[i].getEn(j).valor.getRef());
 					if (ref > numerin) {
 						numerin = ref;
@@ -188,6 +217,20 @@ public class LecturaCSV {
 		}
 		numerin++;
 		return "" + numerin;
+	}
+
+	public datosInmobiliaria[] datosEnArreglo() {
+		datosInmobiliaria[] arreglo = new datosInmobiliaria[this.size];
+		int pos = 0;
+		for (int i = 0; i < this.lista.getTabla().length; i++) {
+			if (this.lista.getTabla()[i].size() > 0) {
+				for (int j = 0; j < this.lista.getTabla()[i].size(); j++) {
+					arreglo[pos] = this.lista.getTabla()[i].getEn(j).valor;
+					pos++;
+				}
+			}
+		}
+		return arreglo;
 	}
 
 	public static LecturaCSV cargarListaDatos(File datos) {
@@ -219,18 +262,18 @@ public class LecturaCSV {
 		LecturaCSV lista = new LecturaCSV();
 		lista.insertarDatos(new File("src/Inmuebles.csv"));
 		lista.lecturaDatos();
-		
+
 		MiListaEnlazada<datosInmobiliaria> lista3 = lista.encontrarPorSuperficie(300);
-        /*for (int i = 0; i < lista3.size(); i++) {
-            datosInmobiliaria objeto = lista3.getEn(i);
-            String datos = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() 
-                            + ", " + objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio()
-                            + ", " + objeto.getFechaV() + ", " + objeto.getVendedor();
-            System.out.println(datos);
-        }
-        */
-        System.out.println(lista.refMasAlta());
-		
+		/*
+		 * for (int i = 0; i < lista3.size(); i++) { datosInmobiliaria objeto =
+		 * lista3.getEn(i); String datos = objeto.getRef() + ", " + objeto.getTipo() +
+		 * ", " + objeto.getOperacion() + ", " + objeto.getProvincia() + ", " +
+		 * objeto.getSuperficie() + ", " + objeto.getPrecio() + ", " +
+		 * objeto.getFechaV() + ", " + objeto.getVendedor(); System.out.println(datos);
+		 * }
+		 */
+		System.out.println(lista.refMasAlta());
+
 	}
 
 }

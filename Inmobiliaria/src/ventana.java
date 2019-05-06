@@ -83,6 +83,11 @@ public class ventana extends JPanel {
 		});
 
 		JButton btnNewButton_2 = new JButton("Ver Datos");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaDatos.main(null);
+			}
+		});
 
 		JButton btnNewButton_3 = new JButton("Borrar");
 
