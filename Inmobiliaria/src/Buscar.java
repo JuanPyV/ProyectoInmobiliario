@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.NoSuchElementException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JTable;
@@ -138,14 +139,18 @@ public class Buscar {
 		btnBuscar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				((DefaultTableModel)table.getModel()).setRowCount(0);
-				LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
-				datosInmobiliaria objeto = datos.encontrar(textField.getText());
-				String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
-								+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio()
-								+ ", " + objeto.getFechaV() + ", " + objeto.getVendedor();
-				String[] dataRow = datosList.split(",");
-				model.addRow(dataRow);
+				try {
+					((DefaultTableModel)table.getModel()).setRowCount(0);
+					LecturaCSV datos = LecturaCSV.cargarListaDatos(new File("datosInmueble.bin"));
+					datosInmobiliaria objeto = datos.encontrar(textField.getText());
+					String datosList = objeto.getRef() + ", " + objeto.getTipo() + ", " + objeto.getOperacion() + ", "
+									+ objeto.getProvincia() + ", " + objeto.getSuperficie() + ", " + objeto.getPrecio()
+									+ ", " + objeto.getFechaV() + ", " + objeto.getVendedor();
+					String[] dataRow = datosList.split(",");
+					model.addRow(dataRow);
+				} catch (NoSuchElementException d) {
+					JOptionPane.showMessageDialog(frameB, "No se encontro esta referencia");
+				}		
 				
 
 			}
