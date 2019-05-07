@@ -17,7 +17,7 @@ import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ventana extends JPanel {
+public class VentanaMain extends JPanel {
 
 	private JFrame frameV;
 	private Image imagen;
@@ -30,7 +30,7 @@ public class ventana extends JPanel {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ventana window = new ventana();
+					VentanaMain window = new VentanaMain();
 					window.frameV.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class ventana extends JPanel {
 	/**
 	 * Create the application.
 	 */
-	public ventana() {
+	public VentanaMain() {
 		initialize();
 
 
@@ -99,32 +99,32 @@ public class ventana extends JPanel {
 
 		ImageIcon imagen = new ImageIcon("src/inmobiliaria.png");
 		Image image = imagen.getImage();
-		Image newimg = image.getScaledInstance(620, 250,  java.awt.Image.SCALE_SMOOTH);
+		Image newimg = image.getScaledInstance(650, 360,  java.awt.Image.SCALE_SMOOTH);
 		ImageIcon imagencita = new ImageIcon(newimg);
 		JLabel lblNewLabel_1 = new JLabel();
 		lblNewLabel_1.setIcon(imagencita);
 
 		GroupLayout groupLayout = new GroupLayout(frameV.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(82)
 					.addComponent(btnNewButton)
-					.addPreferredGap(ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+					.addGap(49)
 					.addComponent(btnNewButton_1)
-					.addGap(61)
+					.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
 					.addComponent(btnNewButton_2)
-					.addPreferredGap(ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+					.addGap(50)
 					.addComponent(btnNewButton_3)
-					.addGap(87))
+					.addGap(112))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(33)
-					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
-					.addGap(28))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addGap(245)
 					.addComponent(lblNewLabel)
 					.addContainerGap(253, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+					.addGap(55))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -136,9 +136,9 @@ public class ventana extends JPanel {
 					.addGap(59)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton)
-						.addComponent(btnNewButton_1)
+						.addComponent(btnNewButton_3)
 						.addComponent(btnNewButton_2)
-						.addComponent(btnNewButton_3))
+						.addComponent(btnNewButton_1))
 					.addContainerGap(129, Short.MAX_VALUE))
 		);
 		frameV.getContentPane().setLayout(groupLayout);
